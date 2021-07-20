@@ -1,0 +1,102 @@
+<CalcRun>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        size: root.width, root.height
+        TextInput:
+            id:num_input
+            text: '0'
+            font_size: 64
+            halign: 'right'
+            size_hint: '1','0.3'
+
+
+
+        GridLayout:
+
+            cols: 4
+            rows: 5
+            size: root.width , root.height
+
+            Button:
+                id: extra
+                text: 'More'
+                on_press: root.extra()
+
+            Button:
+                id: clear
+                text: 'AC'
+                on_press:root.clear()
+
+            Button:
+                id: backspace
+                text: 'C'
+                on_press: root.backspace(9)
+
+            Button:
+                text: '÷'
+                on_press: root.div()
+
+            Button:
+                text: '9'
+                on_press: root.button_press(9)
+
+            Button:
+                text: '8'
+                on_press: root.button_press(8)
+
+            Button:
+                text: '7'
+                on_press: root.button_press(7)
+
+            Button:
+                text: '×'
+                on_press: root.mul()
+
+            Button:
+                text: '6'
+                on_press: root.button_press(6)
+
+            Button:
+                text: '5'
+                on_press: root.button_press(5)
+
+            Button:
+                text: '4'
+                on_press: root.button_press(4)
+
+            Button:
+                text: '-'
+                on_press: root.sub()
+
+            Button:
+                text: '3'
+                on_press: root.button_press(3)
+
+            Button:
+                text: '2'
+                on_press: root.button_press(2)
+
+            Button:
+                text: '1'
+                on_press: root.button_press(1)
+
+            Button:
+                text: '+'
+                on_press: root.add()
+
+            Button:
+                text: 'Back'
+                on_press: root.back()
+
+            Button:
+                text: '0'
+                on_press: root.button_press(0)
+
+            Button:
+                text: '.'
+                on_press: root.button_press('.')
+
+            Button:
+                text: '='
+                on_press: root.equal()
