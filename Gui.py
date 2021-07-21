@@ -68,88 +68,104 @@ class CalcGrid(GridLayout):
 
 class CalcRun(Widget):
 
-
     def equal(self):
-        answer = 0
+        answer = 0.00
 
         prior = self.ids.num_input.text
         if '+' in prior:
-            if prior[-1]=='+':
+            if prior[-1] == '+':
                 pass
             else:
                 num_equal = prior.split('+')
                 print(num_equal)
                 for i in num_equal:
-                    answer = answer + int(i)
-            #self.ids.num_input.text = str(answer)
+                    answer = answer + float(i)
+            # self.ids.num_input.text = str(answer)
             self.answer(answer)
 
         elif '-' in prior:
-            if prior[-1]=='-':
+            if prior[-1] == '-':
                 pass
             else:
                 num_equal = prior.split('-')
                 print(num_equal)
-           # for i in num_equal:
-                answer = int(num_equal[0])-int(num_equal[1])
-            #self.ids.num_input.text = str(answer)
+                # for i in num_equal:
+                answer = int(num_equal[0]) - int(num_equal[1])
+            # self.ids.num_input.text = str(answer)
             self.answer(answer)
 
         elif '×' in prior:
-            if prior[-1]=='×':
+            if prior[-1] == '×':
                 pass
             else:
                 num_equal = prior.split('×')
                 print(num_equal)
-           # for i in num_equal:
-                answer = int(num_equal[0])*int(num_equal[1])
-            #self.ids.num_input.text = str(answer)
+                # for i in num_equal:
+                answer = int(num_equal[0]) * int(num_equal[1])
+            # self.ids.num_input.text = str(answer)
             self.answer(answer)
 
         elif '÷' in prior:
-            if prior[-1]=='÷':
+            if prior[-1] == '÷':
                 pass
             else:
                 num_equal = prior.split('÷')
                 print(num_equal)
-           # for i in num_equal:
-                answer = int(num_equal[0])/int(num_equal[1])
-            #self.ids.num_input.text = str(answer)
+                # for i in num_equal:
+                answer = int(num_equal[0]) / int(num_equal[1])
+            # self.ids.num_input.text = str(answer)
             self.answer(answer)
 
-    def answer(self,answer):
+    def answer(self, answer):
         answer = str(answer)
         if ('.') in answer:
             find = answer.index('.')
-            if answer[find+1]=='0':
+            if answer[find + 1] == '0':
                 answer = answer[:find]
             else:
                 pass
-        self.ids.num_input.text =answer
+        self.ids.num_input.text = answer
 
     def auto(self):
         prior = self.ids.num_input.text
         print(prior)
         print(len(prior))
         answer = 0
-        if len(prior)>=3:
+        if len(prior) >= 3:
             if '+' in prior:
 
                 num_add = prior.split('+')
                 del num_add[-1]
                 for i in num_add:
-                    answer = answer + int(i)
-                self.ids.num_input.text = str(answer)+'+'
+                    answer = answer + float(i)
+                self.ids.num_input.text = str(answer) + '+'
 
-        if len(prior)>3:
-            if '-' in prior:
-
+        #if len(prior) > 3:
+            elif '-' in prior:
                 num_sub = prior.split('-')
                 del num_sub[-1]
-                print('num sub',num_sub)
-                #for i in num_add:
-                answer = int(num_sub[0])-int(num_sub[1])
-                self.ids.num_input.text = str(answer)+'-'
+                print('num sub', num_sub)
+                # for i in num_add:
+                answer = int(num_sub[0]) - int(num_sub[1])
+                self.ids.num_input.text = str(answer) + '-'
+
+            elif '×' in prior:
+                num_mul = prior.split('×')
+                del num_mul[-1]
+                print('num mul', num_mul)
+                answer = 1
+                for i in num_mul:
+                    answer = answer * i
+                self.ids.num_input.text = str(answer) + '×'
+
+            elif '÷' in prior:
+                num_div = prior.split('÷')
+                del num_div[-1]
+                print('num div', num_div)
+                # for i in num_add:
+                answer = int(num_div[0]) / int(num_div[1])
+                self.ids.num_input.text = str(answer) + '÷'
+
 
 
     def clear(self):
@@ -177,14 +193,14 @@ class CalcRun(Widget):
     def back(self):
         pass
 
-    def add(self):
+    def math_sign(self,sign):
         prior = self.ids.num_input.text
         if prior == '0':
             self.ids.num_input.text = ''
 
-        elif prior[-1]=='÷':
+        elif prior[-1] == '÷':
             pass
-        elif prior[-1]=='+':
+        elif prior[-1] == '+':
             pass
         elif prior[-1] == '-':
             pass
@@ -192,63 +208,8 @@ class CalcRun(Widget):
             pass
 
         else:
-            self.ids.num_input.text = f'{prior}+'
+            self.ids.num_input.text = f'{prior}{sign}'
             self.auto()
-
-    def sub(self):
-        prior = self.ids.num_input.text
-        if prior == '0':
-            self.ids.num_input.text = ''
-
-        elif prior[-1]=='÷':
-            pass
-        elif prior[-1]=='+':
-            pass
-        elif prior[-1] == '-':
-            pass
-        elif prior[-1] == '×':
-            pass
-
-        else:
-            self.ids.num_input.text = f'{prior}-'
-            self.auto()
-
-    def mul(self):
-        prior = self.ids.num_input.text
-        if prior == '0':
-            self.ids.num_input.text = ''
-
-        elif prior[-1]=='÷':
-            pass
-        elif prior[-1]=='+':
-            pass
-        elif prior[-1] == '-':
-            pass
-        elif prior[-1] == '×':
-            pass
-
-        else:
-            self.ids.num_input.text = f'{prior}×'
-
-    def div(self):
-        prior = self.ids.num_input.text
-        if prior == '0':
-            self.ids.num_input.text = ''
-
-        elif prior[-1]=='÷':
-            pass
-        elif prior[-1]=='+':
-            pass
-        elif prior[-1] == '-':
-            pass
-        elif prior[-1] == '×':
-            pass
-
-        else:
-            self.ids.num_input.text = f'{prior}÷'
-
-           # prior = f'{prior}÷'
-           # self.sign_man(prior)
 
 
 
