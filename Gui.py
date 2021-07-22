@@ -1,15 +1,29 @@
 import kivy
 from kivy.app import App
-from kivy.uix.label import Label
 from kivy.uix.widget import Widget
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.button import Button
-from kivy.properties import ObjectProperty
-from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
-
+from kivy.lang.builder import Builder
+from kivy.uix.screenmanager import Screen ,ScreenManager
 Window.size = (500, 700)
+
+class calculator(Screen):
+    pass
+class auto_sum(Screen):
+    pass
+class auto_sub(Screen):
+    pass
+class auto_mul(Screen):
+    pass
+class auto_div(Screen):
+    pass
+class selector(Screen):
+    pass
+
+class WindowsManager(ScreenManager):
+    pass
+
+kv = Builder.load_file('calc.kv')
+
 
 class CalcRun(Widget):
     # To find the answer if we press =
