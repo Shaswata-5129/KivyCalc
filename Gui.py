@@ -11,61 +11,6 @@ from kivy.core.window import Window
 
 Window.size = (500, 700)
 
-
-class CalcGrid(GridLayout):
-
-    def __init__(self, **kwargs):
-        super(CalcGrid, self).__init__(**kwargs)
-        self.cols = 1
-
-        # self.add_widget(Label(text='Input your Number: '))
-        self.userinput = TextInput(multiline=False)
-        self.add_widget(self.userinput)
-        # Inside Self funcs
-        self.inside = GridLayout()
-        self.inside.cols = 4
-        self.inside.rows = 5
-
-        # self.nine = Button(text= '9',font_size=40)
-        self.eight = Button(text='8', font_size=40)
-        self.seven = Button(text='7', font_size=40)
-        self.six = Button(text='6', font_size=40)
-        self.five = Button(text='5', font_size=40)
-        self.four = Button(text='4', font_size=40)
-        self.three = Button(text='3', font_size=40)
-        self.two = Button(text='2', font_size=40)
-        self.one = Button(text='1', font_size=40)
-        self.zero = Button(text='0', font_size=40)
-        self.C = Button(text='C', font_size=40)
-        self.CC = Button(text='CC', font_size=40)
-        self.plus = Button(text='+', font_size=40)
-        self.minus = Button(text='-', font_size=40)
-        self.mul = Button(text='*', font_size=40)
-        self.div = Button(text='/', font_size=40)
-        self.equal = Button(text='=', font_size=40)
-
-        self.inside.add_widget(self.nine)
-        self.inside.add_widget(self.eight)
-        self.inside.add_widget(self.seven)
-        self.inside.add_widget(self.plus)
-        self.inside.add_widget(self.six)
-        self.inside.add_widget(self.five)
-        self.inside.add_widget(self.four)
-        self.inside.add_widget(self.minus)
-        self.inside.add_widget(self.three)
-        self.inside.add_widget(self.two)
-        self.inside.add_widget(self.one)
-        self.inside.add_widget(self.mul)
-        self.inside.add_widget(self.C)
-        self.inside.add_widget(self.zero)
-        self.inside.add_widget(self.CC)
-        self.inside.add_widget(self.div)
-
-        # self.nine.bind(on_press=self.pressed)
-
-        # self.add_widget(self.inside)
-
-
 class CalcRun(Widget):
     # To find the answer if we press =
     def equal(self):
