@@ -6,8 +6,7 @@ from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import Screen ,ScreenManager
 Window.size = (500, 700)
 
-class calculator(Screen):
-    pass
+
 class auto_sum(Screen):
     pass
 class auto_sub(Screen):
@@ -22,10 +21,8 @@ class selector(Screen):
 class WindowsManager(ScreenManager):
     pass
 
-kv = Builder.load_file('calc.kv')
 
-
-class CalcRun(Widget):
+class CalcRun(Screen):
     # To find the answer if we press =
     def equal(self):
         answer = 0.00
@@ -181,10 +178,12 @@ class CalcRun(Widget):
             self.auto(num_list)
 
 
+kv = Builder.load_file('calc.kv')
+
 # Mainframe of pogram
 class CalcApp(App):
     def build(self):
-        return CalcRun()
+        return kv
 
 
 # running the programe
