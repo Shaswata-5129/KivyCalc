@@ -73,13 +73,10 @@ class CalcRun(Widget):
 
         prior = self.ids.num_input.text
         if '+' in prior:
-            if prior[-1] == '+':
-                pass
-            else:
-                num_equal = prior.split('+')
-                print(num_equal)
-                for i in num_equal:
-                    answer = answer + float(i)
+            num_equal = prior.split('+')
+            print(num_equal)
+            for i in num_equal:
+                answer = answer + float(i)
             # self.ids.num_input.text = str(answer)
             self.answer(answer)
 
@@ -118,7 +115,13 @@ class CalcRun(Widget):
     # As all the answers is in float for point answers, this will determine if the point has any value or not, if not then Simply remove point
     def answer(self,answer):
         prior = self.ids.num_input.text      # To put the sign after the auto funcs
-        sign = prior[-1]                      # To put the sign after the auto funcs
+        print(prior, 'FInal')
+        if prior[-1] == '+' or '-' or '÷' or '×':
+            sign = prior[-1]
+            print(prior[-1],'prior-1')# To put the sign after the auto funcs
+        else:
+            sign = 0
+            print(sign,'sign')
         answer = str(answer)
         if ('.') in answer:
             find = answer.index('.')
