@@ -7,22 +7,22 @@ from kivy.uix.screenmanager import Screen ,ScreenManager
 Window.size = (500, 700)
 
 
-class auto_sum(Screen):
+class FirstWindow(Screen): # Auto Add
     pass
-class auto_sub(Screen):
+class SecondWindow(Screen): # Auto Sub
     pass
-class auto_mul(Screen):
+class ThirdWindow(Screen): # Auto Mul
     pass
-class auto_div(Screen):
+class ForthWindow(Screen): # Auto div
     pass
-class selector(Screen):
+class FifthWindow(Screen): # selector
     pass
 
 class WindowsManager(ScreenManager):
     pass
 
 
-class CalcRun(Screen):
+class SixthWindow(Screen): # Manual Window
     # To find the answer if we press =
     def equal(self):
         answer = 0.00
