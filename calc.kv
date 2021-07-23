@@ -6,8 +6,9 @@ WindowsManager:
     ThirdWindow:
     ForthWindow:
     FifthWindow:
+    SeventhWindow:
 
-<SixthWindow>:
+<SeventhWindow>:
     name: 'man'
     BoxLayout:
         orientation: 'vertical'
@@ -1003,3 +1004,70 @@ WindowsManager:
                     #    pos_hint: {'x':1,'y':2}
                         pos_hint: {'right':1}
                         pos: (100,root.height/2)
+
+<SixthWindow>
+    name: 'welcome'
+    Label:
+        text: 'Sasu Calculator'
+        font_size: 64
+    #    pos_hint: {'up':1}
+        pos: root.width/80, root.height/3
+    Button:
+        text: 'Start'
+        font_size: 32
+        size_hint: (0.5,0.2)
+        size: root.width/1000,root.height/10
+        pos: root.width/4.5,root.height/2
+        on_release: app.root.current = 'selector'
+
+    Button:
+        text: 'Help'
+        font_size: 32
+        size_hint: (0.5,0.2)
+        size: root.width/1000,root.height/10
+        pos: root.width/4.5,root.height/3.5
+
+    Button:
+        text: 'Credits'
+        font_size: 32
+        size_hint: (0.5,0.2)
+        size: root.width/1000,root.height/10
+        pos: root.width/4.5,root.height/15
+
+
+<FifthWindow>
+    name: 'selector'
+    Button:
+        text: 'Addition Practice (+)'
+        font_size: 32
+        size_hint: (0.8,0.2)
+        size: root.width/1000,root.height/10
+        pos: root.width/10,root.height/1.3
+
+    Button:
+        text: 'Subtraction Practice (-)'
+        font_size: 32
+        size_hint: (0.8,0.2)
+        size: root.width/1000,root.height/10
+        pos: root.width/10,root.height/1.8
+
+    Button:
+        text: 'Multiplication Practice (×)'
+        font_size: 32
+        size_hint: (0.8,0.2)
+        size: root.width/1000,root.height/10
+        pos: root.width/10,root.height/2.9
+
+    Button:
+        text: 'Division Practice (÷)'
+        font_size: 32
+        size_hint: (0.8,0.2)
+        size: root.width/1000,root.height/10
+        pos: root.width/10,root.height/7.7
+
+    Button:
+        text: 'Manual Calculator'
+        font_size: 32
+        size_hint: (0.8,0.1)
+        size: root.width/1000,root.height/10
+        pos: root.width/10,root.height/50

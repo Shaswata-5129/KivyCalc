@@ -18,11 +18,14 @@ class ForthWindow(Screen): # Auto div
 class FifthWindow(Screen): # selector
     pass
 
+class SixthWindow(Screen): # Welcome
+    pass
+
 class WindowsManager(ScreenManager):
     pass
 
 
-class SixthWindow(Screen): # Manual Window
+class SeventhWindow(Screen): # Manual Window
     # To find the answer if we press =
     def equal(self):
         answer = 0.00
