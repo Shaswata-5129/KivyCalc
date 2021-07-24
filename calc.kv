@@ -156,11 +156,21 @@ WindowsManager:
 
         size: root.width, root.height
         TextInput:
-            id:num_input
+            id:num_output
             text: '0'
             font_size: 64
             halign: 'right'
             size_hint: root.width,root.height/4000
+            pos_hint: root.width,root.height/40
+
+
+        TextInput:
+            id:num_input
+            text: '0'
+            font_size: 64
+            halign: 'right'
+            size_hint: root.width,root.height/2000
+
 
         BoxLayout:
             orientation: 'horizontal'
@@ -181,10 +191,10 @@ WindowsManager:
                     background_color : (161/255, 226/255, 100/255, 1)
 
                 Button:
-                    id: clear
-                    text: 'AC'
+                    id: start
+                    text: 'Start'
                     font_size: 32
-                    on_press:root.clear()
+                    on_press:root.start()
 
                 Button:
                     id: backspace
@@ -258,13 +268,13 @@ WindowsManager:
                     background_color: (0,0,0,1)
 
                 Button:
-                    text: '.'
+                    text: '0'
                     font_size: 32
-                    on_press: root.button_press('.')
+                    on_press: root.button_press('0')
                     background_color: (0,0,0,1)
 
                 Button:
-                    text: 'Back'
+                    text: 'Pass'
                     font_size: 32
                     background_normal: ''
                     background_color: (255/255, 178/255, 101/255, 1)
@@ -338,7 +348,7 @@ WindowsManager:
                     background_color: (0,0,0,1)
 
                 Button:
-                    text: 'Back'
+                    text: 'Exit'
                     font_size: 32
                     background_normal: ''
                     background_color: (255/255, 178/255, 101/255, 1)
@@ -349,11 +359,12 @@ WindowsManager:
                     pos: root.width/1.5,root.height/1.25
 
                     Button:
-                        text: '+'
+                        text: '='
                         font_size: 32
                         size_hint: (1,1.5)
                         pos_hint: {'x':2,'y':2}
                         pos_hint: {'right':1}
+                        on_press: root.check()
 
                     Label:
                         text: 'Score'
@@ -478,7 +489,7 @@ WindowsManager:
                     background_color: (0,0,0,1)
 
                 Button:
-                    text: 'Back'
+                    text: 'Pass'
                     font_size: 32
                     background_normal: ''
                     background_color: (255/255, 178/255, 101/255, 1)
@@ -692,7 +703,7 @@ WindowsManager:
                     background_color: (0,0,0,1)
 
                 Button:
-                    text: 'Back'
+                    text: 'Pass'
                     font_size: 32
                     background_normal: ''
                     background_color: (255/255, 178/255, 101/255, 1)
@@ -906,7 +917,7 @@ WindowsManager:
                     background_color: (0,0,0,1)
 
                 Button:
-                    text: 'Back'
+                    text: 'Pass'
                     font_size: 32
                     background_normal: ''
                     background_color: (255/255, 178/255, 101/255, 1)

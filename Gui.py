@@ -4,11 +4,58 @@ from kivy.uix.widget import Widget
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import Screen ,ScreenManager
+from random import *
 Window.size = (500, 700)
 
 
+
 class FirstWindow(Screen): # Auto Add
-    pass
+
+    def start(self):
+        limit = 100
+        start = True
+        while start:
+            first = randint(0,limit)
+            second = randint(0,limit)
+            answer = first + second
+            print(answer,'answer')
+            prior_bfore = f'{first}+{second}'
+            self.ids.num_output.text = prior_bfore
+            self.ids.num_input.text = '0'
+            start = False
+        #    self.check(answer)
+
+    def check(self):
+        answer = 0
+        prior = self.ids.num_output.text
+        splitter = prior.split('+')
+        for i in splitter:
+            answer+= int(i)
+        print(answer,'Final')
+        if str(answer) == self.ids.num_input.text:
+            self.start()
+
+        else:
+            self.ids.num_input.text = 'False'
+
+
+        '''
+        print(answer,'answer')
+        prior = self.ids.num_input.text
+        if prior == answer:
+            print('Yes')
+            self.start()
+        '''
+    def button_press(self,button_press):
+        prior = self.ids.num_input.text
+        if prior == '0':
+            self.ids.num_input.text = ''
+            self.ids.num_input.text = f'{button_press}'
+        else:
+            self.ids.num_input.text = f'{prior}{button_press}'
+
+
+
 class SecondWindow(Screen): # Auto Sub
     pass
 class ThirdWindow(Screen): # Auto Mul
