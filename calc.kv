@@ -1,3 +1,6 @@
+#:import Factory kivy.factory.Factory
+
+
 WindowsManager:
 
     SixthWindow:
@@ -7,6 +10,101 @@ WindowsManager:
     ForthWindow:
     FifthWindow:
     SeventhWindow:
+
+<MyPopup@Popup>:
+    auto_dismiss: False
+    size_hint: 0.8,0.9
+    title: 'Decide Your Number Limit'
+
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Enter Your Number Limit'
+            font_size: 32
+            size_hint: 1,0.15
+        TextInput:
+            id: limit_arr
+            text: '0'
+            font_size: 32
+            halign: 'right'
+            size_hint: 1,0.15
+
+        GridLayout:
+            rows: 4
+            cols: 3
+
+            Button:
+                text: '9'
+                font_size: 32
+                on_press: root.button_press(9)
+                background_color: (0,0,0,1)
+
+            Button:
+                text: '8'
+                font_size: 32
+                on_press: root.button_press(8)
+                background_color: (0,0,0,1)
+
+            Button:
+                text: '7'
+                font_size: 32
+                on_press: root.button_press(7)
+                background_color: (0,0,0,1)
+
+            Button:
+                text: '6'
+                font_size: 32
+                on_press: root.button_press(6)
+                background_color: (0,0,0,1)
+
+            Button:
+                text: '5'
+                font_size: 32
+                on_press: root.button_press(5)
+                background_color: (0,0,0,1)
+
+            Button:
+                text: '4'
+                font_size: 32
+                on_press: root.button_press(4)
+                background_color: (0,0,0,1)
+
+            Button:
+                text: '3'
+                font_size: 32
+                on_press: root.button_press(3)
+                background_color: (0,0,0,1)
+
+            Button:
+                text: '2'
+                font_size: 32
+                on_press: root.button_press(2)
+                background_color: (0,0,0,1)
+
+            Button:
+                text: '1'
+                font_size: 32
+                on_press: root.button_press(1)
+                background_color: (0,0,0,1)
+
+            Button:
+                text: 'Exit'
+                font_size: 32
+                on_release: app.root.current = 'welcome'
+                background_normal: ''
+                background_color: (255/255, 178/255, 101/255, 1)
+
+            Button:
+                text: '0'
+                font_size: 32
+                on_press: root.button_press(0)
+                background_color: (0,0,0,1)
+
+            Button:
+                text: '.'
+                font_size: 32
+                on_press: root.button_press('.')
+                background_color: (0,0,0,1)
 
 <SeventhWindow>:
     name: 'man'
@@ -183,12 +281,12 @@ WindowsManager:
                 width: root.width/1.50
 
                 Button:
-                    id: extra
-                    text: 'More'
+                    id: limit
+                    text: 'Limit'
                     font_size: 32
-                    on_press: root.extra()
                     background_normal : ''
                     background_color : (161/255, 226/255, 100/255, 1)
+                    on_release: Factory.MyPopup().open()
 
                 Button:
                     id: start
@@ -278,7 +376,7 @@ WindowsManager:
                     font_size: 32
                     background_normal: ''
                     background_color: (255/255, 178/255, 101/255, 1)
-                    on_release: app.root.current= 'man'
+                    on_press: root.pass_val()
 
                 FloatLayout:
                     size: root.width/3,root.height/4.5

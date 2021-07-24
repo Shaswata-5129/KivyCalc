@@ -47,13 +47,6 @@ class FirstWindow(Screen): # Auto Add
         print(score,'score')
 
 
-        '''
-        print(answer,'answer')
-        prior = self.ids.num_input.text
-        if prior == answer:
-            print('Yes')
-            self.start()
-        '''
     def button_press(self,button_press):
         prior = self.ids.num_input.text
         if prior == '0':
@@ -61,6 +54,9 @@ class FirstWindow(Screen): # Auto Add
             self.ids.num_input.text = f'{button_press}'
         else:
             self.ids.num_input.text = f'{prior}{button_press}'
+
+    def pass_val(self):
+        self.start()
 
 
 
@@ -78,6 +74,7 @@ class SixthWindow(Screen): # Welcome
 
 class WindowsManager(ScreenManager):
     pass
+
 
 
 class SeventhWindow(Screen): # Manual Window
@@ -236,12 +233,12 @@ class SeventhWindow(Screen): # Manual Window
             self.auto(num_list)
 
 
-kv = Builder.load_file('calc.kv')
+#kv = Builder.load_file('calc.kv')
 
 # Mainframe of pogram
 class CalcApp(App):
     def build(self):
-        return kv
+        return
 
 
 # running the programe
