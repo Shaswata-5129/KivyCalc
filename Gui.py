@@ -26,6 +26,7 @@ class FirstWindow(Screen): # Auto Add
         #    self.check(answer)
 
     def check(self):
+        score = self.ids.check.text
         answer = 0
         prior = self.ids.num_output.text
         splitter = prior.split('+')
@@ -33,10 +34,17 @@ class FirstWindow(Screen): # Auto Add
             answer+= int(i)
         print(answer,'Final')
         if str(answer) == self.ids.num_input.text:
-            self.start()
+            score = int(score) +1
+
+            self.ids.check.text = str(score)
 
         else:
-            self.ids.num_input.text = 'False'
+            score = int(score) - 1
+            self.ids.check.text = str(score)
+
+        self.start()
+
+        print(score,'score')
 
 
         '''

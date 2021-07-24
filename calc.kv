@@ -292,9 +292,10 @@ WindowsManager:
                         pos_hint: {'right':1}
 
                     Label:
-                        text: 'Score'
-                        font_size: 32
-                        size_hint: (1,1.5)
+                        id: check
+                        text: '0'
+                        font_size: 128
+                        size_hint: (1,0.5)
                     #    pos_hint: {'x':1,'y':2}
                         pos_hint: {'right':1}
                         pos: (100,root.height/2)
@@ -367,9 +368,9 @@ WindowsManager:
                         on_press: root.check()
 
                     Label:
-                        text: 'Score'
+                        text: ''
                         font_size: 32
-                        size_hint: (1,1.5)
+                        size_hint: (1,0.5)
                     #    pos_hint: {'x':1,'y':2}
                         pos_hint: {'right':1}
                         pos: (100,root.height/2)
