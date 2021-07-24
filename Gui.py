@@ -3,24 +3,24 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
-from kivy.uix.screenmanager import Screen ,ScreenManager
+from kivy.uix.screenmanager import Screen, ScreenManager
 from random import *
+
 Window.size = (500, 700)
 
 
-
-class FirstWindow(Screen): # Auto Add
+class FirstWindow(Screen):  # Auto Add
 
     def start(self):
         limit = 100
         start = True
         while start:
-            first = randint(0,limit)
-            second = randint(0,limit)
+            first = randint(0, limit)
+            second = randint(0, limit)
             answer = first + second
-            print(answer,'answer')
-            prior_bfore = f'{first}+{second}'
-            self.ids.num_output.text = prior_bfore
+            print(answer, 'answer')
+            prior_before = f'{first}+{second}'
+            self.ids.num_output.text = prior_before
             self.ids.num_input.text = '0'
             start = False
         #    self.check(answer)
@@ -31,10 +31,10 @@ class FirstWindow(Screen): # Auto Add
         prior = self.ids.num_output.text
         splitter = prior.split('+')
         for i in splitter:
-            answer+= int(i)
-        print(answer,'Final')
+            answer += int(i)
+        print(answer, 'Final')
         if str(answer) == self.ids.num_input.text:
-            score = int(score) +1
+            score = int(score) + 1
 
             self.ids.check.text = str(score)
 
@@ -44,10 +44,9 @@ class FirstWindow(Screen): # Auto Add
 
         self.start()
 
-        print(score,'score')
+        print(score, 'score')
 
-
-    def button_press(self,button_press):
+    def button_press(self, button_press):
         prior = self.ids.num_input.text
         if prior == '0':
             self.ids.num_input.text = ''
@@ -59,25 +58,31 @@ class FirstWindow(Screen): # Auto Add
         self.start()
 
 
-
-class SecondWindow(Screen): # Auto Sub
-    pass
-class ThirdWindow(Screen): # Auto Mul
-    pass
-class ForthWindow(Screen): # Auto div
-    pass
-class FifthWindow(Screen): # selector
+class SecondWindow(Screen):  # Auto Sub
     pass
 
-class SixthWindow(Screen): # Welcome
+
+class ThirdWindow(Screen):  # Auto Mul
     pass
+
+
+class ForthWindow(Screen):  # Auto div
+    pass
+
+
+class FifthWindow(Screen):  # selector
+    pass
+
+
+class SixthWindow(Screen):  # Welcome
+    pass
+
 
 class WindowsManager(ScreenManager):
     pass
 
 
-
-class SeventhWindow(Screen): # Manual Window
+class SeventhWindow(Screen):  # Manual Window
     # To find the answer if we press =
     def equal(self):
         answer = 0.00
@@ -119,7 +124,6 @@ class SeventhWindow(Screen): # Manual Window
                 # for i in num_equal:
                 answer = float(num_equal[0]) / float(num_equal[1])
                 answer = str(answer)
-
 
         if ('.') in answer:
             find = answer.index('.')
@@ -178,8 +182,6 @@ class SeventhWindow(Screen): # Manual Window
 
             self.answer(answer)
 
-
-
     # to clear the total screen
     def clear(self):
         self.ids.num_input.text = '0'
@@ -233,7 +235,7 @@ class SeventhWindow(Screen): # Manual Window
             self.auto(num_list)
 
 
-#kv = Builder.load_file('calc.kv')
+# kv = Builder.load_file('calc.kv')
 
 # Mainframe of pogram
 class CalcApp(App):
